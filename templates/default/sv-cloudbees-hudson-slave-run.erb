@@ -1,0 +1,11 @@
+#!/bin/sh
+exec 2>&1
+cd <%= node[:jenkins][:node][:home] %>
+exec chpst -u <%= node[:jenkins][:node][:user] %> \
+java -jar <%= node[:jenkins][:node][:home] %>/jenkins-cli.jar \
+-i <%= node[:jenkins][:node][:home]%>/.ssh/cloudbees \
+-s <%= node[:jenkins][:server][:url] %> \
+customer-managed-slave -fsroot <%= node[:jenkins][:node][:home] \
+-labels <%= node[:jenkins][:node][:labels] %> \
+-name <%= node[:jenkins][:node][:name] %>
+
