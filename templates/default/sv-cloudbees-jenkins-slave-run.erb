@@ -10,5 +10,4 @@ java -jar <%= node[:jenkins][:node][:home] %>/jenkins-cli.jar \
 customer-managed-slave -fsroot <%= node[:jenkins][:node][:home] %> \
 -labels <%= node[:jenkins][:node][:labels] %> \
 -name <%= node[:jenkins][:node][:name] %> \
--executors 1
-
+-executors <%= node[:jenkins][:node][:executors] %>

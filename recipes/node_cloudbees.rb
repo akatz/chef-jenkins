@@ -36,7 +36,7 @@ file "#{node[:jenkins][:node][:home]}/.ssh/cloudbees" do
   mode '0600'
 end
 
-#jenkins_cli "-i #{node[:jenkins][:node][:home]}/.ssh/id_rsa customer-managed-slave -fsroot #{node[:jenkins][:node][:home]} -labels #{node[:jenkins][:node][:labels]} -name #{node[:jenkins][:node][:name]}&" do
+#do nothing during the run as runit manages the connection
 jenkins_cli "-i #{node[:jenkins][:node][:home]}/.ssh/id_rsa who-am-i -fsroot #{node[:jenkins][:node][:home]} -labels #{node[:jenkins][:node][:labels]} -name #{node[:jenkins][:node][:name]}&"
 
 runit_service service_name
